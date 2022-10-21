@@ -18,16 +18,12 @@ module.exports = {
     networks: {
         hardhat: {
             chainId: 31337,
-            forking: {
-                url: MAINNET_RPC_URL,
-            },
-            blockConfirmation: 1,
         },
         goerli: {
             url: GOERLI_RPC_URL,
             accounts: [PRIVATE_KEY],
             chainId: 5,
-            blockConfirmation: 6,
+            blockConfirmations: 6,
         },
         localhost: {
             chainId: 31337,
@@ -67,7 +63,7 @@ module.exports = {
         outputFile: "gas-report.txt",
         noColors: true,
         currency: "INR",
-        coinmarketcap: COINMARKETCAP_API_KEY,
+        // coinmarketcap: COINMARKETCAP_API_KEY,
         token: "ETH",
     },
     mocha: {
