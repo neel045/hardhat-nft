@@ -1,0 +1,11 @@
+{
+    "name": "Simha",
+    "description": "A Tiger that is roaring and hunting it's prey",
+    "image": "ipfs://bafybeihsq4gj4bj2tmdsckjeut6iwwlrfyofkepqfq5baeozfqvq43fef4/",
+    "attributes": [
+        {
+            "trait_type": "violant",
+            "value": 100
+        }
+    ]
+}
