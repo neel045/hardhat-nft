@@ -98,7 +98,7 @@ contract RandomIpfsNft is VRFConsumerBaseV2, ERC721URIStorage, Ownable {
         Breed lionBreed = getBreedFromModdedRng(moddedRng);
         _safeMint(lionOwner, newTokenId);
         _setTokenURI(newTokenId, s_lionTokenUris[uint256(lionBreed)]);
-        s_tokenCounter += 1;
+        s_tokenCounter = s_tokenCounter + 1;
         emit NftMinted(lionBreed, lionOwner);
     }
 

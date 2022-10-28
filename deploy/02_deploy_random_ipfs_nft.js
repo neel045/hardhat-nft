@@ -18,9 +18,9 @@ const metadataTemplate = {
     ],
 }
 let tokenUris = [
-    "ipfs://QmbkTp7yQzcUTaHgtsxxwS2Uo8oZobuVY1iowAuGL9tBJq",
-    "ipfs://QmdRC5EzzALtpjm7ELna6jFUuuZkupfyX4QFu1rTpH3cTn",
-    "ipfs://Qmedib45jCEnPUqf4WpGytUHFKBh3pgaLpVkPCXgprRQdm",
+    "ipfs://QmUeMWbGCUMbXdmRJGgmx4WWKNkrb8GgQiaQdT7YRRbosQ",
+    "ipfs://Qmd59LfmgqfeVmq8gXqGBR8N8CzKxoxodFGwZfQMmY8cX7",
+    "ipfs://QmVCK5BiRwNYpum49dXqzjL2KeQ7DPaPDH3mJUAXLXMjE8",
 ]
 
 const FUND_AMOUNT = "100000000000000000000"
@@ -79,6 +79,7 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
 async function handleTokenUris() {
     tokenUris = []
     const { responses: imageUploadResponses, files } = await storeImages(imagesLocation)
+
     for (imageUploadResponseIndex in imageUploadResponses) {
         //create meta data
         //upload metadata
@@ -86,9 +87,10 @@ async function handleTokenUris() {
         let tokenUriMetadata = { ...metadataTemplate }
         tokenUriMetadata.name = files[imageUploadResponseIndex].replace(".jpg", "")
         tokenUriMetadata.description = `An violant and brave protector ${tokenUriMetadata.name} lion`
-        tokenUriMetadata.image = `ipfs://${imageUploadResponses[imageUploadResponseIndex].IpfsHash}`
+        tokenUriMetadata.image = `ipfs://${imageUploadResponses[imageUploadResponseIndex]}`
         console.log(`Uploading.....${tokenUriMetadata.name}`)
         const metadataUploadResponse = await storeTokenUriMetadata(tokenUriMetadata)
+        // console.log(tokenUriMetadata)
         tokenUris.push(`ipfs://${metadataUploadResponse.IpfsHash}`)
     }
     console.log(tokenUris)

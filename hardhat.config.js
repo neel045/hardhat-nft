@@ -34,16 +34,6 @@ module.exports = {
         apiKey: {
             goerli: ETHERSCAN_API_KEY,
         },
-        // customChains: [
-        //     {
-        //         network: "goerli",
-        //         chainId: 5,
-        //         urls: {
-        //             apiURL: "https://api-goerli.etherscan.io/api",
-        //             browserURL: "https://goerli.etherscan.io/",
-        //         },
-        //     },
-        // ],
     },
 
     solidity: {
@@ -62,8 +52,8 @@ module.exports = {
         enabled: true,
         outputFile: "gas-report.txt",
         noColors: true,
-        currency: "INR",
-        // coinmarketcap: COINMARKETCAP_API_KEY,
+        currency: "USD",
+        coinmarketcap: COINMARKETCAP_API_KEY,
         token: "ETH",
     },
     mocha: {
